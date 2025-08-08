@@ -63,13 +63,13 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2">
             <Link
               href="/login"
-              className="px-4 py-2 w-30 text-center rounded-full hover:bg-yellow-600 hover:text-white text-white font-medium transition-colors"
+              className="px-4 py-2 w-30 text-center rounded-full hover:bg-yellow-500 hover:text-white text-white font-medium transition-colors"
             >
               Log In
             </Link>
             <Link
               href="/signup"
-              className="px-2 py-2 bg-yellow-700 text-white rounded-full w-30 text-center hover:bg-yellow-600 transition-colors shadow"
+              className="bg-yellow-700 text-white hover:bg-yellow-500 font-bold py-3 px-8 rounded-full transition-colors duration-300"
             >
               Sign Up
             </Link>
@@ -120,7 +120,7 @@ export const Navbar = () => {
                 <Link
                   href="/signup"
                   onClick={() => setIsOpen(false)}
-                  className="px-3 py-2 bg-yellow-700 text-white rounded-full w-30 hover:bg-yellow-600 transition-colors text-center"
+                  className="px-3 py-2 bg-yellow-700 text-white rounded-full w-30 hover:bg-yellow-500 transition-colors text-center"
                 >
                   Sign Up
                 </Link>

@@ -90,7 +90,7 @@ const Services = () => {
         <div className="text-center mt-16">
           <Link
             href="/service"
-            className="inline-block bg-yellow-600 text-white font-bold py-3 px-12 rounded-lg text-lg hover:bg-yellow-500 transition-transform transform hover:scale-105"
+            className="bg-yellow-700 text-white hover:bg-yellow-500 font-bold py-3 px-8 rounded-full transition-colors duration-300"
           >
             View All Services
           </Link>
