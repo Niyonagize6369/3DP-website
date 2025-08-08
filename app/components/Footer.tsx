@@ -24,14 +24,14 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1: Logo and Brand */}
           <div className="md:col-span-1">
-            <Link href="/" className="inline-block mb-4">
+            {/* <Link href="/" className="inline-block mb-4">
               <Image
                 src="/3dp.jpg"
                 alt="Your Company Logo"
                 width={110}
                 height={25}
               />
-            </Link>
+            </Link> */}
             <p className="text-white text-sm">
               Transforming complex data into beautiful and intuitive
               visualizations.

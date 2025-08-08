@@ -8,12 +8,12 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/home", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
   { href: "/data", label: "Data" },
-  { href: "/assessment", label: "Assessment" },
+  { href: "/service", label: "Service" },
   { href: "/contact", label: "Contact" },
+  { href: "/assessment", label: "Assessment" },
 ];
 
 export const Navbar = () => {
@@ -33,6 +33,7 @@ export const Navbar = () => {
                 width={110} // Set your desired width
                 height={25} // Set your desired height
                 priority // Add priority to load the logo quickly
+                className="h-12 w-auto"
               />
             </Link>
           </div>
@@ -96,7 +97,7 @@ export const Navbar = () => {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`
-                  block px-3 py-2 rounded-full text-white font-medium hover:bg-yellow-700 hover:text-white transition-colors
+                  block px-3 py-2 text-white font-medium hover:bg-yellow-700 rounded-full text-center w-30
                   ${
                     pathname === link.href
                       ? "bg-blue-50 text-blue-700"
@@ -107,7 +108,7 @@ export const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <div className="border-t border-gray-200 pt-4 pb-3">
+            <div className="border-t border-gray-100 pt-4 pb-3">
               <div className="flex flex-col space-y-2 px-3">
                 <Link
                   href="/login"
