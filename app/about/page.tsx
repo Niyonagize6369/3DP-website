@@ -1,8 +1,14 @@
+// pages/about.js (or app/about/page.js)
 "use client";
 
 import { motion } from "framer-motion";
-
-import { FaBullseye, FaEye } from "react-icons/fa";
+import {
+  FaBullseye,
+  FaEye,
+  FaLightbulb,
+  FaRegClock,
+  FaUser,
+} from "react-icons/fa";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -13,7 +19,7 @@ const fadeInUp = {
 const stagger = {
   animate: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15, // A slightly slower stagger makes the effect more noticeable
     },
   },
 };
@@ -35,7 +41,7 @@ const AboutPage = () => {
             initial="initial"
             animate="animate"
           >
-            3DP Rwanda
+            Who We Are
           </motion.h1>
           <motion.p
             className="mt-4 text-lg md:text-xl text-black max-w-3xl mx-auto"
@@ -44,8 +50,10 @@ const AboutPage = () => {
             animate="animate"
             transition={{ delay: 0.2, duration: 0.6, ease: [0.42, 0, 0.58, 1] }}
           >
-            Empowering businesses with data-driven insights and innovative
-            solutions for better decision-making.
+            We specialize in providing comprehensive services that empower
+            businesses to harness the full potential of their data. With a focus
+            on driving informed decision-making, we offer a range of solutions
+            designed to transform raw information into actionable insights.
           </motion.p>
         </div>
       </motion.div>
@@ -81,7 +89,6 @@ const AboutPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Replace with a relevant image, e.g., your team or an abstract data visualization */}
             <img
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
               alt="Data Analytics Dashboard"
@@ -111,7 +118,7 @@ const AboutPage = () => {
                 <p className="text-white">
                   To create a secure, enabling environment for increased trade,
                   investments, and skills development through professional
-                  conduct and offering high-quality service. [14]
+                  conduct and offering high-quality service.
                 </p>
               </div>
             </motion.div>
@@ -131,6 +138,84 @@ const AboutPage = () => {
           </div>
         </div>
       </motion.section>
+
+      {/* --- [NEW] Why Choose Us Section --- */}
+      <motion.section
+        className="container mx-auto px-6 py-20"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={stagger}
+      >
+        <h2 className="text-3xl font-bold text-center text-black mb-12">
+          Why Choose Us?
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <motion.div
+            variants={fadeInUp}
+            className="bg-gray-800 p-8 rounded-lg shadow-lg"
+          >
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <FaUser className="text-4xl text-yellow-500" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Expert Team
+                </h3>
+                <p className="text-white">
+                  Our team consists of highly skilled professionals with years
+                  of experience in data management and analytics.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            variants={fadeInUp}
+            className="bg-gray-800 p-8 rounded-lg shadow-lg"
+          >
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <FaLightbulb className="text-4xl text-yellow-500" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  Innovative Solutions
+                </h3>
+                <p className="text-white">
+                  We provide cutting-edge solutions that are tailored to meet
+                  the unique needs of your business.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div
+            variants={fadeInUp}
+            className="bg-gray-800 p-8 rounded-lg shadow-lg"
+          >
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <FaRegClock className="text-4xl text-yellow-500" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  24/7 Support
+                </h3>
+                <p className="text-white">
+                  Our dedicated support team is available around the clock to
+                  assist you with any questions or issues you may have.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+      {/* --- End of Why Choose Us Section --- */}
 
       {/* --- Meet The Team Section --- */}
       <motion.section
