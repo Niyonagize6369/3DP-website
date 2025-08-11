@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 // Import your new components
-import {Navbar} from "@/app/components/Navbar";
-import {Footer} from "@/app/components/Footer";
+import { Navbar } from "@/app/components/Navbar";
+import { Footer } from "@/app/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        {/* 1. Add the Navbar at the top */}
+        {/* === THIS IS THE LINE THAT WAS ADDED === */}
+        {/* This component is invisible but listens for toast calls from any page */}
+        <Toaster position="top-center" reverseOrder={false} />
+
+        {/* 1. The Navbar remains at the top */}
         <Navbar />
 
         {/* 2. The main content of your pages will be rendered here */}
@@ -39,7 +43,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* 3. Add the Footer at the bottom */}
+        {/* 3. The Footer remains at the bottom */}
         <Footer />
       </body>
     </html>

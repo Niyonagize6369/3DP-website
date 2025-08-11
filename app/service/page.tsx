@@ -50,7 +50,7 @@ const servicesData = [
 // This is a new Page component
 const AllServicesPage = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-white">
       <div className="container mx-auto px-6 py-20 md:py-28">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-black">
