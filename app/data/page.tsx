@@ -19,8 +19,8 @@ import {
 // This array now includes stats and a color for each card.
 const dashboardData = [
   {
-    icon: <FaBuilding className="text-4xl text-blue-500" />,
-    color: "blue",
+    icon: <FaBuilding className="text-4xl text-black" />,
+    color: "",
     title: "Infrastructure",
     description:
       "Analyze transportation networks, energy facilities, communication systems, and public services.",

@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/data", label: "Data" },
   { href: "/service", label: "Service" },
   { href: "/contact", label: "Contact" },
-  { href: "/assessment", label: "Assessment" },
+  { href: "/data-maturity-assessment", label: "Assessment" },
 ];
 
 export const Navbar = () => {
