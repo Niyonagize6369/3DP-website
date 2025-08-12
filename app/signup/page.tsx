@@ -21,11 +21,12 @@ const SignUpPage = () => {
   return (
     <AuthLayout
       pageTitle="SIGN UP"
-      panelTitle="One of Us?"
-      panelSubtitle="If you already have an account, just sign in. We've missed you!"
+      panelTitle="Your Welcome"
+      panelSubtitle=""
       linkHref="/login"
       linkText="Login"
       mobileLinkText="Already have an account? Login"
+      
     >
       <motion.form
         initial={{ opacity: 0 }}

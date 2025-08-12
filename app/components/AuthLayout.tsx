@@ -74,7 +74,7 @@ const AuthLayout = ({
 
         <div className="bg-white p-8 md:p-12 w-full">
           <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-700 mt-4">
+            <h2 className="text-2xl font-bold text-black mt-4">
               {pageTitle}
             </h2>
           </div>

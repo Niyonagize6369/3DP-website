@@ -21,8 +21,8 @@ const LoginPage = () => {
   return (
     <AuthLayout
       pageTitle="LOGIN"
-      panelTitle="New Here?"
-      panelSubtitle="Sign up and discover a great amount of new opportunities!"
+      panelTitle="Your Welcome"
+      panelSubtitle=""
       linkHref="/signup"
       linkText="Sign Up"
       mobileLinkText="Don't have an account? Sign Up"
