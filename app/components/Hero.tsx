@@ -36,8 +36,9 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 leading-tight">
-            Empowering businesses to discover and harness the full potential of
-            data
+            We Empowering <span className="text-yellow-500">businesses </span>
+            to discover and harness the full potential of{" "}
+            <span className="text-yellow-500">data</span>
           </h1>
           <p className="text-lg text-black mb-8">
             Your Partner in Becoming a Data Driven Business.
