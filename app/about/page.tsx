@@ -1,4 +1,3 @@
-// pages/about.js (or app/about/page.js)
 "use client";
 
 import { motion } from "framer-motion";
@@ -19,7 +18,7 @@ const fadeInUp = {
 const stagger = {
   animate: {
     transition: {
-      staggerChildren: 0.15, // A slightly slower stagger makes the effect more noticeable
+      staggerChildren: 0.15,
     },
   },
 };
@@ -27,7 +26,7 @@ const stagger = {
 const AboutPage = () => {
   return (
     <div className="bg-white text-black">
-      {/* --- Hero Section --- */}
+      {/* Hero*/}
       <motion.div
         className="bg-gray-50"
         initial={{ opacity: 0 }}
@@ -58,7 +57,7 @@ const AboutPage = () => {
         </div>
       </motion.div>
 
-      {/* --- Our Story Section --- */}
+      {/*Our Story  */}
       <motion.section
         className="container mx-auto px-6 py-16"
         initial="initial"
@@ -90,8 +89,8 @@ const AboutPage = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-              alt="Data Analytics Dashboard"
+              src="/jani.jpg"
+              alt="Our journey"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -139,7 +138,6 @@ const AboutPage = () => {
         </div>
       </motion.section>
 
-      {/* --- [NEW] Why Choose Us Section --- */}
       <motion.section
         className="container mx-auto px-6 py-20"
         initial="initial"
@@ -151,7 +149,6 @@ const AboutPage = () => {
           Why Choose Us?
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Card 1 */}
           <motion.div
             variants={fadeInUp}
             className="bg-gray-800 p-8 rounded-lg shadow-lg"
@@ -172,7 +169,6 @@ const AboutPage = () => {
             </div>
           </motion.div>
 
-          {/* Card 2 */}
           <motion.div
             variants={fadeInUp}
             className="bg-gray-800 p-8 rounded-lg shadow-lg"
@@ -193,7 +189,6 @@ const AboutPage = () => {
             </div>
           </motion.div>
 
-          {/* Card 3 */}
           <motion.div
             variants={fadeInUp}
             className="bg-gray-800 p-8 rounded-lg shadow-lg"
@@ -215,9 +210,7 @@ const AboutPage = () => {
           </motion.div>
         </div>
       </motion.section>
-      {/* --- End of Why Choose Us Section --- */}
 
-      {/* --- Meet The Team Section --- */}
       <motion.section
         className="container mx-auto px-6 py-16"
         initial="initial"
@@ -229,9 +222,7 @@ const AboutPage = () => {
           Meet Our Experts
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {/* --- Team Member Card (Example) --- */}
           <motion.div variants={fadeInUp} className="text-center">
-            {/* Replace with actual team member photos */}
             <img
               src="/photo1.jpg"
               alt="Team Member"
@@ -263,7 +254,6 @@ const AboutPage = () => {
         </div>
       </motion.section>
 
-      {/* --- Call to Action --- */}
       <motion.div
         className="bg-gray-800 text-white"
         initial={{ opacity: 0, y: 50 }}

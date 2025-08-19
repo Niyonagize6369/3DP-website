@@ -1,4 +1,3 @@
-// pages/contact.js (or app/contact/page.js)
 "use client";
 
 import { useState } from "react";
@@ -8,14 +7,12 @@ import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import { FiMapPin, FiMail, FiPhone } from "react-icons/fi";
 import { toast } from "react-hot-toast";
 
-// Reusable animation variants
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: "easeOut" },
 };
 
-// Stagger variant for parent containers
 const staggerContainer = {
   animate: {
     transition: {
@@ -27,12 +24,10 @@ const staggerContainer = {
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Note: I've removed the TypeScript types for broader JS/TS compatibility.
-  // You can add <FormData> back if you are in a .tsx file.
   const {
     register,
     handleSubmit,
-    reset, // <-- Import reset
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -40,17 +35,15 @@ const ContactPage = () => {
     setIsSubmitting(true);
     console.log("Form Data:", data);
 
-    // Simulate API call
     setTimeout(() => {
       toast.success("Message sent successfully!");
-      reset(); // <-- Reset the form fields
+      reset();
       setIsSubmitting(false);
-    }, 1500); // 1.5 second delay
+    }, 1500);
   };
 
   return (
     <div className="bg-gray-800 text-white">
-      {/* --- Hero Section --- */}
       <motion.div
         className="bg-white text-center"
         initial="initial"
@@ -67,7 +60,6 @@ const ContactPage = () => {
         </div>
       </motion.div>
 
-      {/* --- Main Content: Form & Info --- */}
       <motion.section
         className="container mx-auto px-6 py-16"
         initial="initial"
@@ -76,11 +68,7 @@ const ContactPage = () => {
         variants={staggerContainer}
       >
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* --- Left Column: Contact Info --- */}
-          <motion.div
-            className="space-y-8"
-            variants={staggerContainer} // Stagger the children of this div
-          >
+          <motion.div className="space-y-8" variants={staggerContainer}>
             <motion.h2
               variants={fadeInUp}
               className="text-3xl font-bold text-white"
@@ -88,7 +76,6 @@ const ContactPage = () => {
               Contact Information
             </motion.h2>
 
-            {/* Address */}
             <motion.div
               variants={fadeInUp}
               className="flex items-start space-x-4"
@@ -100,7 +87,6 @@ const ContactPage = () => {
               </div>
             </motion.div>
 
-            {/* Phone */}
             <motion.div
               variants={fadeInUp}
               className="flex items-start space-x-4"
@@ -117,7 +103,6 @@ const ContactPage = () => {
               </div>
             </motion.div>
 
-            {/* Email */}
             <motion.div
               variants={fadeInUp}
               className="flex items-start space-x-4"
@@ -134,7 +119,6 @@ const ContactPage = () => {
               </div>
             </motion.div>
 
-            {/* Social Media */}
             <motion.div variants={fadeInUp}>
               <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
               <div className="flex space-x-4">
@@ -163,7 +147,6 @@ const ContactPage = () => {
             </motion.div>
           </motion.div>
 
-          {/* --- Right Column: Contact Form --- */}
           <motion.div
             className="bg-white p-8 rounded-lg shadow-lg"
             variants={fadeInUp}
@@ -283,9 +266,8 @@ const ContactPage = () => {
         </div>
       </motion.section>
 
-      {/* --- Map Section --- */}
       <motion.div
-        className="max-w-5xl mx-auto px-6 pb-16" // <-- Centered and medium width
+        className="max-w-5xl mx-auto px-6 pb-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -295,7 +277,7 @@ const ContactPage = () => {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.525568571063!2d30.06313881529603!3d-1.94246803723386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6a4b654f5c9%3A0x673322d7168b4493!2sKG%207%20Ave%2C%20Kigali!5e0!3m2!1sen!2srw!4v1671542151656!5m2!1sen!2srw"
             width="100%"
-            height="400" // <-- Slightly shorter height for better balance
+            height="400"
             style={{ border: 0 }}
             allowFullScreen={true}
             loading="lazy"

@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Add custom colors to easily manage your design system
+      
       colors: {
         'primary': '#3498db',
         'secondary': '#2c3e50',
@@ -15,7 +15,7 @@ module.exports = {
         'light-bg': '#ecf0f1',
         'light-card': '#f4f7f6',
       },
-      // Define the keyframes for the dashboard slider animation
+     
       keyframes: {
         slide: {
           '0%, 100%': { transform: 'translateX(0%)' },

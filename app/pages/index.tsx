@@ -1,4 +1,3 @@
-// pages/index.tsx
 import type { NextPage } from "next";
 import Head from "next/head";
 import Hero from "@/app/components/Hero";
@@ -19,7 +18,6 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        {/* Each section is neatly separated */}
         <section>
           <Hero />
         </section>

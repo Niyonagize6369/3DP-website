@@ -1,4 +1,3 @@
-// components/sections/DataStand.tsx
 import Link from "next/link";
 import AnimatedCard from "@/app/components/ui/AnimatedCard";
 
@@ -45,14 +44,12 @@ const DataStand = () => {
                 </h3>
                 <p className="text-black mb-6 flex-grow">{card.description}</p>
 
-                {/* === THIS IS THE UPDATED PART === */}
                 <Link
                   href="/contact"
                   className="mt-auto text-center bg-yellow-700 text-white border-2 border-gray-800  font-bold py-2 px-6 rounded-lg  hover:bg-yellow-500 hover:text-white transition-colors duration-300"
                 >
                   {card.buttonText}
                 </Link>
-              
               </div>
             </AnimatedCard>
           ))}

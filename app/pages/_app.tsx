@@ -1,4 +1,3 @@
-// pages/_app.js
 import { Toaster } from "react-hot-toast";
 import Layout from "@/app/layout";
 import "../styles/globals.css";

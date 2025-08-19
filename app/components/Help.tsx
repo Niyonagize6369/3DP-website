@@ -1,4 +1,3 @@
-// components/sections/Help.tsx
 import AnimatedCard from "@/app/components/ui/AnimatedCard";
 
 const helpCards = [
@@ -18,7 +17,6 @@ const helpCards = [
     bgImage: "help3.jpg",
   },
 ];
-// NOTE: Add corresponding images to `public/images/`
 
 const Help = () => {
   return (
@@ -39,7 +37,6 @@ const Help = () => {
                 className="relative h-96 rounded-lg shadow-lg overflow-hidden bg-cover bg-center flex items-end p-6 text-white transform transition-transform duration-500 hover:scale-105"
                 style={{ backgroundImage: `url(${card.bgImage})` }}
               >
-                {/* Overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="relative z-10">
                   <h3 className="text-2xl font-bold">{card.title}</h3>

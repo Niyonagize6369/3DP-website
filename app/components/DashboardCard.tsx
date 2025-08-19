@@ -1,8 +1,6 @@
-// components/DashboardCard.js
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
-// Animation variant for the card itself
 const cardVariants = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
@@ -21,7 +19,13 @@ type DashboardCardProps = {
   color: string;
 };
 
-const DashboardCard = ({ icon, title, description, stats, color }: DashboardCardProps) => {
+const DashboardCard = ({
+  icon,
+  title,
+  description,
+  stats,
+  color,
+}: DashboardCardProps) => {
   return (
     <motion.div
       variants={cardVariants}
@@ -36,7 +40,6 @@ const DashboardCard = ({ icon, title, description, stats, color }: DashboardCard
         <p className="text-gray-600 mb-6">{description}</p>
       </div>
 
-      {/* --- Mini Dashboard Preview --- */}
       <div className="bg-gray-50 p-4 mt-auto border-t border-gray-200">
         <div className="flex justify-around text-center">
           {stats.map((stat, index) => (
@@ -51,7 +54,7 @@ const DashboardCard = ({ icon, title, description, stats, color }: DashboardCard
       </div>
 
       <a
-        href="#" // Replace with actual link to the dashboard
+        href="#"
         className={`group block bg-${color}-600 text-white text-center font-semibold py-3 px-6 transition-colors duration-300 hover:bg-${color}-700`}
       >
         <span className="inline-flex items-center">

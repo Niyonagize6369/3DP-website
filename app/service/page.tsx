@@ -1,7 +1,6 @@
 import Image from "next/image";
 import AnimatedCard from "@/app/components/ui/AnimatedCard";
 
-// We need the list of services again for this page.
 const servicesData = [
   {
     title: "Data Strategy & Roadmap Development",
@@ -47,7 +46,6 @@ const servicesData = [
   },
 ];
 
-// This is a new Page component
 const AllServicesPage = () => {
   return (
     <div className="bg-white">
@@ -61,7 +59,6 @@ const AllServicesPage = () => {
           </p>
         </div>
 
-        {/* This grid shows ALL 9 services */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {servicesData.map((service, index) => (
             <AnimatedCard key={index}>

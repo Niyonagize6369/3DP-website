@@ -1,5 +1,3 @@
-// components/ResetPasswordForm.js
-
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -18,7 +16,6 @@ const ResetPasswordForm = () => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
-  // State for both password fields
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -26,40 +23,33 @@ const ResetPasswordForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  // Check for the token once on component load
   useEffect(() => {
     if (!token) {
       setError("Invalid or missing reset token. Please check your link.");
     }
   }, [token]);
 
-  // Main submission logic
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    // Clear previous errors on a new submission attempt
     setError("");
 
-    // --- Validation Step 1: Check if passwords match ---
     if (password !== confirmPassword) {
       setError("Passwords do not match. Please try again.");
-      return; // Stop the submission
+      return;
     }
 
-    // --- Validation Step 2: Check for password length (optional but recommended) ---
     if (password.length < 8) {
       setError("Password must be at least 8 characters long.");
-      return; // Stop the submission
+      return;
     }
 
     if (isLoading || !password || !confirmPassword || !!error) return;
 
     setIsLoading(true);
 
-    // --- YOUR API CALL GOES HERE ---
     console.log("Resetting password with token:", token);
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network delay
-    // --- END OF API CALL ---
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsLoading(false);
     setIsSubmitted(true);
@@ -69,7 +59,6 @@ const ResetPasswordForm = () => {
     <div className="w-full">
       <AnimatePresence mode="wait">
         {isSubmitted ? (
-          // --- SUCCESS MESSAGE ---
           <motion.div
             key="success"
             variants={containerVariants}
@@ -93,7 +82,6 @@ const ResetPasswordForm = () => {
             </Link>
           </motion.div>
         ) : (
-          // --- CREATE NEW PASSWORD FORM ---
           <motion.div
             key="form"
             variants={containerVariants}
@@ -106,7 +94,6 @@ const ResetPasswordForm = () => {
                 Create New Password
               </h2>
               <div className="space-y-4">
-                {/* --- New Password Field --- */}
                 <div>
                   <label
                     htmlFor="password"
@@ -123,7 +110,7 @@ const ResetPasswordForm = () => {
                     required
                   />
                 </div>
-                {/* --- Confirm Password Field --- */}
+
                 <div>
                   <label
                     htmlFor="confirmPassword"
@@ -142,14 +129,12 @@ const ResetPasswordForm = () => {
                 </div>
               </div>
 
-              {/* Centralized Error Display */}
               {error && (
                 <p className="text-sm text-center text-red-600 font-medium">
                   {error}
                 </p>
               )}
 
-              {/* --- Buttons --- */}
               <div className="space-y-3 pt-2">
                 <button
                   type="submit"

@@ -1,9 +1,8 @@
-// src/components/Navbar.tsx
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; // <-- IMPORT THE IMAGE COMPONENT
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -24,22 +23,20 @@ export const Navbar = () => {
     <nav className="bg-gray-800 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* === LOGO SECTION (CHANGED) === */}
+          {/*logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/3dp.jpg" // The path to your logo in the `public` folder
+                src="/3dp.jpg"
                 alt="Your Company Logo"
-                width={110} // Set your desired width
-                height={25} // Set your desired height
-                priority // Add priority to load the logo quickly
+                width={110}
+                height={25}
+                priority
                 className="h-12 w-auto"
               />
             </Link>
           </div>
-          {/* === END OF LOGO SECTION === */}
 
-          {/* Desktop Navigation Links (Unchanged) */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -59,7 +56,6 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop Auth Buttons (Unchanged) */}
           <div className="hidden md:flex items-center space-x-2">
             <Link
               href="/login"
@@ -75,7 +71,6 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button (Unchanged) */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -87,7 +82,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown (Unchanged) */}
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">

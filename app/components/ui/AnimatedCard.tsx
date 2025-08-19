@@ -1,4 +1,3 @@
-// components/ui/AnimatedCard.tsx
 "use client";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -39,7 +38,6 @@ const AnimatedCard = ({ children, className }: AnimatedCardProps) => {
       ref={ref}
       initial="hidden"
       animate={controls}
-    //   variants={cardVariants}
       className={className}
     >
       {children}

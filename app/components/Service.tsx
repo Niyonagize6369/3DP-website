@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link"; // We need this for the new button
+import Link from "next/link";
 import AnimatedCard from "@/app/components/ui/AnimatedCard";
 
-// This is the full list of your services
 const servicesData = [
   {
     title: "Data Strategy & Roadmap Development",
@@ -61,13 +60,12 @@ const Services = () => {
           We offer a range of services designed to help your business leverage
           data and technology effectively.
         </p>
-        {/* We now use the SMALL list to create the cards */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {servicesForHomePage.map((service, index) => (
             <AnimatedCard key={index}>
               <div className="bg-white rounded-lg shadow-lg overflow-hidden h-full transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
                 <div className="relative h-56 w-full">
-                  {/* I also fixed your Image tag to the new Next.js style */}
                   <Image
                     src={service.imgSrc}
                     alt={service.title}
@@ -86,7 +84,6 @@ const Services = () => {
           ))}
         </div>
 
-        {/* --- AND HERE IS THE NEW BUTTON --- */}
         <div className="text-center mt-16">
           <Link
             href="/service"

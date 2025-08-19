@@ -1,4 +1,3 @@
-// pages/forgot-password.js
 "use client";
 
 import { useState } from "react";
@@ -21,18 +20,14 @@ const ForgotPasswordPage = () => {
     const toastId = toast.loading("Sending reset link...");
 
     try {
-      // --- REPLACE WITH YOUR ACTUAL API CALL ---
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      // Simulate an error if the email is not found
       if (!email.includes("@")) {
-        // Replace with actual API logic
         throw new Error("Email address not found.");
       }
-      // ------------------------------------
 
       toast.success("Reset link sent!", { id: toastId });
-      setSubmitted(true); // Switch to the success view
+      setSubmitted(true);
     } catch (error) {
       const errorMessage =
         typeof error === "object" && error !== null && "message" in error

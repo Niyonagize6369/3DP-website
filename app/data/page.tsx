@@ -1,9 +1,6 @@
-// app/data/page.js (or pages/data.js)
-
 "use client";
-
 import { motion } from "framer-motion";
-import DashboardCard from "../components/DashboardCard"; // Adjust path if needed
+import DashboardCard from "../components/DashboardCard";
 import {
   FaBuilding,
   FaMapMarkedAlt,
@@ -15,8 +12,6 @@ import {
   FaMountain,
 } from "react-icons/fa";
 
-// --- Data for Dashboard Previews ---
-// This array now includes stats and a color for each card.
 const dashboardData = [
   {
     icon: <FaBuilding className="text-4xl text-black" />,
@@ -108,7 +103,6 @@ const dashboardData = [
   },
 ];
 
-// --- Animation Variant for the container ---
 const staggerContainer = {
   animate: {
     transition: {
@@ -121,7 +115,7 @@ const DataPage = () => {
   return (
     <div className="bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* --- Header Section --- */}
+        {/*  Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -30 }}
@@ -137,7 +131,6 @@ const DataPage = () => {
           </p>
         </motion.div>
 
-        {/* --- Dashboard Grid --- */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           variants={staggerContainer}

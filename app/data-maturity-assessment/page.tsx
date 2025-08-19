@@ -1,5 +1,3 @@
-// app/data-maturity-assessment/page.tsx
-
 "use client";
 
 import { motion, Variants } from "framer-motion";
@@ -12,7 +10,6 @@ import {
 } from "react-icons/fa";
 import { ReactNode } from "react";
 
-// Define a type for our steps for better TypeScript support
 interface AssessmentStep {
   icon: ReactNode;
   title: string;
@@ -40,7 +37,6 @@ const assessmentSteps: AssessmentStep[] = [
   },
 ];
 
-// Animation Variants for Framer Motion
 const staggerContainer: Variants = {
   animate: {
     transition: {
@@ -52,14 +48,12 @@ const staggerContainer: Variants = {
 const fadeInUp: Variants = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  // ----- FIX #1: UNCOMMENTED THE TRANSITION FOR SMOOTH ANIMATION -----
-  //   transition: { duration: 0.6, ease: "easeOut" },
 };
 
 const AssessmentLandingPage = () => {
   return (
     <div className="bg-gray-50 text-black">
-      {/* --- Hero Section --- */}
+      {/* Hero  */}
       <motion.section
         className="text-center bg-white"
         initial="initial"
@@ -81,18 +75,13 @@ const AssessmentLandingPage = () => {
             path to becoming a data-driven leader.
           </motion.p>
         </div>
-        {/* ----- FIX #2: CORRECTLY CLOSED THE MOTION.SECTION TAG ----- */}
       </motion.section>
 
-      {/* --- Instructions & Steps Section --- */}
       <section className="container mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-black">
-            A Simple 3-Step Process
+            3-Step Process you can follow
           </h2>
-          <p className="mt-3 text-black">
-            Follow these steps to get your personalized maturity score.
-          </p>
         </div>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-10"
@@ -117,7 +106,6 @@ const AssessmentLandingPage = () => {
         </motion.div>
       </section>
 
-      {/* --- Start Button & Final CTA Section --- */}
       <section className="bg-white">
         <div className="container mx-auto px-6 py-20 text-center">
           <motion.h2
