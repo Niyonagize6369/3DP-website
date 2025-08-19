@@ -48,11 +48,11 @@ const DataStand = () => {
                 {/* === THIS IS THE UPDATED PART === */}
                 <Link
                   href="/contact"
-                  className="mt-auto text-center bg-transparent border-2 border-gray-800 text-black font-bold py-2 px-6 rounded-lg hover:bg-yellow-700 hover:text-white transition-colors duration-300"
+                  className="mt-auto text-center bg-yellow-700 text-white border-2 border-gray-800  font-bold py-2 px-6 rounded-lg  hover:bg-yellow-500 hover:text-white transition-colors duration-300"
                 >
                   {card.buttonText}
                 </Link>
-                {/* ================================ */}
+              
               </div>
             </AnimatedCard>
           ))}
