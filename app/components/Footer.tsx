@@ -30,7 +30,9 @@ export const Footer = () => {
                 height={25}
               />
             </Link> */}
-            <p className="text-white text-lg font-bold mb-2">3Dp.rw</p>
+            <p className="text-white text-lg font-bold mb-2">
+              <span className="text-yellow-500">3Dp</span>.rw
+            </p>
             <p className="text-white text-md mb-4">
               Empowering businesses with data-driven insights and innovative
               solutions for better decision-making.
