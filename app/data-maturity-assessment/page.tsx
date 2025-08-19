@@ -18,19 +18,19 @@ interface AssessmentStep {
 
 const assessmentSteps: AssessmentStep[] = [
   {
-    icon: <FaClipboardList className="text-4xl text-yellow-700" />,
+    icon: <FaClipboardList className="text-4xl text-yellow-500" />,
     title: "1. Answer Questions",
     description:
       "You'll be guided through a series of multiple-choice questions about your organization's data practices.",
   },
   {
-    icon: <FaChartLine className="text-4xl text-yellow-700" />,
+    icon: <FaChartLine className="text-4xl text-yellow-500" />,
     title: "2. Get Instant Analysis",
     description:
       "Our system analyzes your responses in real-time to calculate your position on the data maturity spectrum.",
   },
   {
-    icon: <FaAward className="text-4xl text-yellow-700" />,
+    icon: <FaAward className="text-4xl text-yellow-500" />,
     title: "3. Receive Your Score",
     description:
       "Receive a personalized report detailing your score, key strengths, and actionable areas for improvement.",
