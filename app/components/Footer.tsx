@@ -79,25 +79,25 @@ export const Footer = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-white hover:text-yellow-600 transition-colors"
+                className="text-yellow-500 hover:text-yellow-600 transition-colors"
               >
                 <Facebook size={24} />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-yellow-600 transition-colors"
+                className="text-yellow-500 hover:text-yellow-600 transition-colors"
               >
                 <Twitter size={24} />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-yellow-600 transition-colors"
+                className="text-yellow-500 hover:text-yellow-600 transition-colors"
               >
                 <Instagram size={24} />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-yellow-600 transition-colors"
+                className="text-yellow-500 hover:text-yellow-600 transition-colors"
               >
                 <Linkedin size={24} />
               </a>
