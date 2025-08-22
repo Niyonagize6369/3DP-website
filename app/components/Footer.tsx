@@ -12,8 +12,8 @@ const footerLinks = [
 ];
 
 const resourceLinks = [
-  { href: "/service", label: "Service" },
   { href: "/about", label: "About Us" },
+  { href: "/service", label: "Service" },
 ];
 
 export const Footer = () => {
@@ -107,8 +107,8 @@ export const Footer = () => {
 
         <div className="mt-12 border-t border-gray-700 pt-8 flex justify-center">
           <p className="text-white text-sm text-center">
-            &copy; {new Date().getFullYear()} <span className="text-yellow-500">3DP</span>.rw All rights
-            reserved.
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="text-yellow-500">3DP</span>.rw All rights reserved.
           </p>
         </div>
       </div>
