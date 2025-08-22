@@ -22,14 +22,6 @@ export const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            {/* <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/3dp.jpg"
-                alt="Your Company Logo"
-                width={110}
-                height={25}
-              />
-            </Link> */}
             <p className="text-white text-lg font-bold mb-2">
               <span className="text-yellow-500">3Dp</span>.rw
             </p>
