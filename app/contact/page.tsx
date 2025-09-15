@@ -1,62 +1,38 @@
+// pages/contact.js (or app/contact/page.js)
 "use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { FiMapPin, FiMail, FiPhone } from "react-icons/fi";
 import { toast } from "react-hot-toast";
-import {
-  FiMapPin,
-  FiMail,
-  FiPhone,
-  FiClock,
-  FiArrowRight,
-} from "react-icons/fi";
 
+// Reusable animation variants
 const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: "easeOut" },
 };
 
+// Stagger variant for parent containers
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
 
-const contactInfoCards = [
-  {
-    icon: <FiMapPin size={24} className="text-yellow-500" />,
-    title: "Location",
-    content: "Kigali/Rwanda/KG 7 Ave Kacyiru",
-  },
-  {
-    icon: <FiPhone size={24} className="text-yellow-500" />,
-    title: "Contact",
-    content: "+250 785842428",
-    href: "tel:+250785842428",
-  },
-  {
-    icon: <FiMail size={24} className="text-yellow-500" />,
-    title: "Email",
-    content: "info@3dp.rw",
-    href: "mailto:info@3dp.rw",
-  },
-  {
-    icon: <FiClock size={24} className="text-yellow-500" />,
-    title: "Visit Us",
-    content: "All times - 24/7",
-  },
-];
-
 const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Note: I've removed the TypeScript types for broader JS/TS compatibility.
+  // You can add <FormData> back if you are in a .tsx file.
   const {
     register,
     handleSubmit,
-    reset,
+    reset, // <-- Import reset
     formState: { errors },
   } = useForm();
 
@@ -64,231 +40,269 @@ const ContactPage = () => {
     setIsSubmitting(true);
     console.log("Form Data:", data);
 
+    // Simulate API call
     setTimeout(() => {
       toast.success("Message sent successfully!");
-      reset();
+      reset(); // <-- Reset the form fields
       setIsSubmitting(false);
-    }, 1500);
+    }, 1500); // 1.5 second delay
   };
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-gray-800 text-white">
+      {/* --- Hero Section --- */}
       <motion.div
-        className="bg-gray-800 text-white text-center py-20"
+        className="bg-white text-center"
         initial="initial"
         animate="animate"
         variants={staggerContainer}
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 py-20">
           <motion.h1
+            className="text-4xl md:text-6xl font-bold text-black"
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-bold mt-2"
           >
-            Get in Touch
+            Get In Touch
           </motion.h1>
         </div>
       </motion.div>
 
+      {/* --- Main Content: Form & Info --- */}
       <motion.section
-        className="py-20"
+        className="container mx-auto px-6 py-16"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {contactInfoCards.map((card, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="bg-white p-8 rounded-lg shadow-md text-center"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="bg-slate-100 p-4 rounded-full">
-                    {card.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-black mb-2">
-                  {card.title}
-                </h3>
-                {card.href ? (
-                  <a
-                    href={card.href}
-                    className="text-black hover:text-yellow-700 transition-colors"
-                  >
-                    {card.content}
-                  </a>
-                ) : (
-                  <p className="text-black">{card.content}</p>
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          {/* --- Left Column: Contact Info --- */}
+          <motion.div
+            className="space-y-8"
+            variants={staggerContainer} // Stagger the children of this div
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-3xl font-bold text-white"
+            >
+              Contact Information
+            </motion.h2>
+
+            {/* Address */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-start space-x-4"
+            >
+              <FiMapPin className="text-3xl text-yellow-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg font-semibold">Address</h3>
+                <p className="text-gray-300">KG 7 Ave, Kigali, Rwanda</p>
+              </div>
+            </motion.div>
+
+            {/* Phone */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-start space-x-4"
+            >
+              <FiPhone className="text-3xl text-yellow-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg font-semibold">Phone</h3>
+                <a
+                  href="tel:+250788382383"
+                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                >
+                  +250 788 382 383
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Email */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-start space-x-4"
+            >
+              <FiMail className="text-3xl text-yellow-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg font-semibold">Email</h3>
+                <a
+                  href="mailto:info@3dp.rw"
+                  className="text-gray-300 hover:text-yellow-500 transition-colors"
+                >
+                  info@3dp.rw
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Social Media */}
+            <motion.div variants={fadeInUp}>
+              <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
+              <div className="flex space-x-4">
+                <motion.a
+                  href="#"
+                  whileHover={{ y: -4 }}
+                  className="text-yellow-500 hover:text-yellow-400 transition-colors"
+                >
+                  <FaTwitter size={24} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  whileHover={{ y: -4 }}
+                  className="text-yellow-500 hover:text-yellow-400 transition-colors"
+                >
+                  <FaLinkedin size={24} />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  whileHover={{ y: -4 }}
+                  className="text-yellow-500 hover:text-yellow-400 transition-colors"
+                >
+                  <FaGithub size={24} />
+                </motion.a>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* --- Right Column: Contact Form --- */}
+          <motion.div
+            className="bg-white p-8 rounded-lg shadow-lg"
+            variants={fadeInUp}
+          >
+            <motion.form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-6"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.div variants={fadeInUp}>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-black"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  {...register("name", { required: "Name is required" })}
+                  className="mt-1 block text-black w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
+                  disabled={isSubmitting}
+                />
+                {typeof errors.name?.message === "string" && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.name.message}
+                  </p>
                 )}
               </motion.div>
-            ))}
-          </div>
+
+              <motion.div variants={fadeInUp}>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-black"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Invalid email address",
+                    },
+                  })}
+                  className="mt-1 block w-full px-3 py-2 text-black bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
+                  disabled={isSubmitting}
+                />
+                {typeof errors.email?.message === "string" && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-black"
+                >
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  {...register("subject", { required: "Subject is required" })}
+                  className="mt-1 block w-full px-3 py-2 text-black bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
+                  disabled={isSubmitting}
+                />
+                {typeof errors.subject?.message === "string" && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.subject.message}
+                  </p>
+                )}
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-black"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  {...register("message", { required: "Message is required" })}
+                  className="mt-1 block w-full px-3 py-2 text-black bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
+                  disabled={isSubmitting}
+                ></textarea>
+                {typeof errors.message?.message === "string" && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.message.message}
+                  </p>
+                )}
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <button
+                  type="submit"
+                  className="bg-yellow-700  text-white hover:bg-yellow-500 font-bold py-3 px-8 rounded-full transition-colors duration-300"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    "Send Message"
+                  )}
+                </button>
+              </motion.div>
+            </motion.form>
+          </motion.div>
         </div>
       </motion.section>
 
-      <section className="pb-20">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={staggerContainer}
-            >
-              <motion.h2
-                variants={fadeInUp}
-                className="text-3xl font-bold text-black "
-              >
-                Send Message
-              </motion.h2>
-
-              <motion.form
-                onSubmit={handleSubmit(onSubmit)}
-                className="space-y-6"
-                variants={fadeInUp}
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="sr-only">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      placeholder="Full Name"
-                      {...register("name", { required: "Name is required" })}
-                      className="mt-1 block text-black w-full px-4 py-3 bg-white border border-gray-900 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
-                      disabled={isSubmitting}
-                    />
-                    {typeof errors.name?.message === "string" && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.name.message}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="sr-only">
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Your Email"
-                      {...register("email", {
-                        required: "Email is required",
-                        pattern: {
-                          value: /^\S+@\S+$/i,
-                          message: "Invalid email address",
-                        },
-                      })}
-                      className="mt-1 block w-full px-4 py-3 text-black bg-white border border-gray-900 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
-                      disabled={isSubmitting}
-                    />
-                    {typeof errors.email?.message === "string" && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="phone" className="sr-.only">
-                    Your Phone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Your Phone"
-                    {...register("phone")}
-                    className="mt-1 block w-full px-4 py-3 text-black bg-white border border-gray-900 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
-                    disabled={isSubmitting}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="sr-only">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    placeholder="How can we help you?"
-                    {...register("message", {
-                      required: "Message is required",
-                    })}
-                    className="mt-1 block w-full px-4 py-3 text-black bg-white border border-gray-900 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"
-                    disabled={isSubmitting}
-                  ></textarea>
-                  {typeof errors.message?.message === "string" && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.message.message}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-3 bg-yellow-700 text-white hover:bg-yellow-500 font-bold py-3 px-8 rounded-md transition-colors duration-300 disabled:bg-red-500"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>Sending...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <FiArrowRight />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </motion.form>
-            </motion.div>
-
-            {/* Map */}
-            <motion.div
-              className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.525568571063!2d30.06313881529603!3d-1.94246803723386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6a4b654f5c9%3A0x673322d7168b4493!2sKG%207%20Ave%2C%20Kigali!5e0!3m2!1sen!2srw!4v1671542151656!5m2!1sen!2srw"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="bg-cover bg-center text-white py-24 relative"
-        style={{ backgroundImage: "url('/office-background.jpg')" }}
+      {/* --- Map Section --- */}
+      <motion.div
+        className="max-w-5xl mx-auto px-6 pb-16" // <-- Centered and medium width
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
       >
-        <div className="absolute inset-0 bg-gray-800"></div>
-        <div className="container mx-auto px-6 text-center relative">
-          <h2 className="text-4xl font-bold">Ready to Work, Let's Chat</h2>
-          <p className="mt-4 max-w-2xl mx-auto">
-            Our team of experts is ready to collaborate with you every step of
-            the way, from initial consultation to implementation.
-          </p>
-          <a
-            href="#"
-            className="mt-8 inline-flex items-center gap-2 bg-yellow-700 text-black font-bold py-3 px-8 rounded-md hover:bg-yellow-500 transition-colors"
-          >
-            CONTACT US TODAY! <FiArrowRight />
-          </a>
+        <div className="rounded-lg overflow-hidden shadow-2xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.525568571063!2d30.06313881529603!3d-1.94246803723386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6a4b654f5c9%3A0x673322d7168b4493!2sKG%207%20Ave%2C%20Kigali!5e0!3m2!1sen!2srw!4v1671542151656!5m2!1sen!2srw"
+            width="100%"
+            height="400" // <-- Slightly shorter height for better balance
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-      </section>
+      </motion.div>
     </div>
   );
 };

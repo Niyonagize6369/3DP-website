@@ -8,9 +8,9 @@ const images = [
   "/dash2.jpg",
   "/dash3.jpg",
   "/dash4.jpg",
-  "/dash5.jpg",
-  "/dash6.jpg",
-  "/dash7.jpg",
+  // "/dash5.jpg",
+  // "/dash6.jpg",
+  // "/dash7.jpg",
 ];
 
 const Hero = () => {
